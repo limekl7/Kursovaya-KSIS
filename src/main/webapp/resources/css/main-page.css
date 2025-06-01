@@ -1,0 +1,407 @@
+/* Base styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #13151a 0%, #1e2128 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #3A87E0, #64E0FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-menu a.active {
+    background: rgba(58, 135, 224, 0.1);
+    color: #3A87E0;
+}
+
+.navbar-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 8rem 2rem 2rem;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    background: linear-gradient(90deg, #fff, #a5c5e7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: #8b95a5;
+    margin-top: 0.5rem;
+}
+
+/* Контейнер для фильтров */
+.filters-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-size: 0.875rem;
+    width: 200px;
+}
+
+.filter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.filter-label {
+    color: #8b95a5;
+    font-size: 0.875rem;
+}
+
+.filter-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-size: 0.875rem;
+    width: 200px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #3A87E0;
+    box-shadow: 0 0 0 2px rgba(58, 135, 224, 0.2);
+}
+
+/* Контейнер для скролла */
+.crypto-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.5rem 0 1.5rem 0;
+    margin: 0 -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    position: relative;
+    -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%
+    );
+    mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%
+    );
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.crypto-scroll-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.crypto-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.crypto-scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+/* Cards Wrapper */
+.crypto-cards-wrapper {
+    display: flex;
+    gap: 1.75rem;
+    padding: 0.5rem;
+    min-width: min-content;
+}
+
+/* Карточки */
+.crypto-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.75rem;
+    min-width: 320px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.crypto-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.crypto-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-right: 1.25rem;
+    background-size: cover;
+}
+
+/* Иконки для криптовалют */
+.bitcoin { background: linear-gradient(45deg, #F7931A, #FFAB2E); }
+.ethereum { background: linear-gradient(45deg, #627EEA, #8CA3F2); }
+.tether { background: linear-gradient(45deg, #26A17B, #4ACCAF); }
+.binance-coin { background: linear-gradient(45deg, #F3BA2F, #FFD966); }
+.solana { background: linear-gradient(45deg, #9945FF, #14F195); }
+.xrp { background: linear-gradient(45deg, #23292F, #3D4852); }
+.avalanche { background: linear-gradient(45deg, #E84142, #FF6B6B); }
+.chainlink { background: linear-gradient(45deg, #2A5ADA, #4D7FFF); }
+.polygon { background: linear-gradient(45deg, #8247E5, #B47FFF); }
+.cosmos { background: linear-gradient(45deg, #2E3148, #5B6078); }
+.cardano { background: linear-gradient(45deg, #0033AD, #00A3E0); }
+.dogecoin { background: linear-gradient(45deg, #C2A633, #EAD861); }
+.polkadot { background: linear-gradient(45deg, #E6007A, #FF5A9E); }
+.tron { background: linear-gradient(45deg, #EF3038, #FF666A); }
+.stellar { background: linear-gradient(45deg, #0D1C2E, #3B5A9A); }
+.ripple { background: linear-gradient(45deg, #23292F, #3D4852); }
+.litecoin { background: linear-gradient(45deg, #345D9D, #A3BFFA); }
+.bitcoin-cash { background: linear-gradient(45deg, #0AC18E, #4DE8B4); }
+.uniswap { background: linear-gradient(45deg, #FF007A, #FF66A1); }
+
+/* Иконки для бирж */
+.binance { background: #FFC107; }
+.coinbase-pro { background: #1A73E8; }
+.kraken { background: #333333; }
+.bitfinex { background: #00C853; }
+.huobi { background: #D32F2F; }
+
+.crypto-icon:not([class*='bitcoin']):not([class*='ethereum']):not([class*='tether']):not([class*='binance-coin']):not([class*='solana']):not([class*='xrp']):not([class*='avalanche']):not([class*='chainlink']):not([class*='polygon']):not([class*='cosmos']):not([class*='cardano']):not([class*='dogecoin']):not([class*='polkadot']):not([class*='tron']):not([class*='stellar']):not([class*='ripple']):not([class*='litecoin']):not([class*='bitcoin-cash']):not([class*='uniswap']):not([class*='binance']):not([class*='coinbase-pro']):not([class*='kraken']):not([class*='bitfinex']):not([class*='huobi']) {
+    background: linear-gradient(45deg, #4A4A4A, #6A6A6A);
+}
+
+.crypto-basic-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.ticker {
+    color: #8b95a5;
+    font-size: 0.875rem;
+}
+
+.price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.current-price, .current-price-byn {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.current-price-byn {
+    color: #8b95a5;
+}
+
+.price-changes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.price-change-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.price-change-label {
+    color: #8b95a5;
+    font-size: 0.875rem;
+}
+
+.price-change {
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.price-change.positive {
+    background: rgba(52, 199, 89, 0.1);
+    color: #34c759;
+}
+
+.price-change.negative {
+    background: rgba(255, 59, 48, 0.1);
+    color: #ff3b30;
+}
+
+.market-cap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.market-cap-label {
+    color: #8b95a5;
+    font-size: 0.875rem;
+}
+
+.market-cap-value, .market-cap-value-byn {
+    font-weight: 500;
+}
+
+.market-cap-value-byn {
+    color: #8b95a5;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: #8b95a5;
+    font-size: 0.75rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: #3A87E0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #64E0FF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar-menu {
+        gap: 1rem;
+    }
+
+    .main-content {
+        padding: 6rem 1rem 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .crypto-card {
+        min-width: 260px;
+        padding: 1.25rem;
+    }
+
+    .filter-input, .filter-select {
+        width: 150px;
+    }
+}
